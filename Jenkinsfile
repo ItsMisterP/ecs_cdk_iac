@@ -5,6 +5,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 echo 'Installing..'
+                npm '-i aws-cdk'
                 yarn 'install'
             }
         }
@@ -17,6 +18,12 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+        }
+    }
+    post{
+        failure {
+            echo 'Failure while destroying'
+            sh 'cdk destroy'
         }
     }
 }

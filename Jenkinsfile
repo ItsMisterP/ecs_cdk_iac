@@ -8,9 +8,9 @@ pipeline {
                 yarn 'install'
             }
         }
-        stage('Test') {
+        stage('Deploy Infrastructure') {
             steps {
-                echo 'Testing..'
+                sh 'cdk deploy'
             }
         }
         stage('Deploy') {

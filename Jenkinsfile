@@ -5,9 +5,8 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 echo 'Installing..'
-                npm 'install -g aws-cdk'
+                npm 'install --save aws-cdk'
                 yarn 'install'
-                sh 'cdk deploy'
             }
         }
         stage('Deploy Infrastructure') {

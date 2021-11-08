@@ -5,6 +5,7 @@ import { CdkProjectStack } from '../lib/cdk_project-stack';
 import {NetworkStack} from "../lib/stacks/network_stack";
 import {Tags} from "@aws-cdk/core";
 import {ComputeStack} from "../lib/stacks/compute_stack";
+import {DataStack} from "../lib/stacks/data_stack"
 
 export function tagging(construct: cdk.Construct): void{
     Tags.of(construct).add('createdBy', 'Philip Ohm')
@@ -24,5 +25,6 @@ let compute_stack = new ComputeStack(app, 'ComputeStack', {
     network: networkStack
 })
 
+let dataStack = new DataStack(app, "DataStack")
 
 

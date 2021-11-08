@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Deploy Infrastructure') {
             steps {
-                sh 'cdk deploy'
+                sh 'npx cdk deploy'
             }
         }
         stage('Deploy') {
